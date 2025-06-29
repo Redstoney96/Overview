@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Overview"
         mc:Ignorable="d"
-        Title="Overview" Background="#FF6D6D6D" Height="466" Width="869">
-    <StackPanel Margin="10" Background="#FF6D6D6D" x:Name="mainPanel">
+        Title="Overview 2025.1 Beta" Background="#FF6D6D6D" Height="498" Width="954" Icon="/folderIcon2.png">
+    <StackPanel Drop="mainPanel_Drop" AllowDrop="True" Margin="10" x:Name="mainPanel">
+        <StackPanel.Background>
+            <ImageBrush ImageSource="/walpaper1.jpg"/>
+        </StackPanel.Background>
         <Label Content="Programs" Foreground="#FFFFD200" FontSize="18" FontFamily="Arial Rounded MT Bold" Background="#FF929292" FontWeight="Bold"/>
         <WrapPanel HorizontalAlignment="Center">
             <Image Margin="15" HorizontalAlignment="Left" x:Name="app1" MouseDown="app1Click" Source="/placeholdericon3.png" Height="142" Width="158"></Image>
@@ -23,6 +26,7 @@
             <Image Margin="0" HorizontalAlignment="Center" x:Name="folder5" MouseDown="folder5Click" Source="/folderIcon2.png" Height="94" Width="102"/>
             <Image Margin="0" HorizontalAlignment="Center" x:Name="folder6" MouseDown="folder6Click" Source="/folderIcon2.png" Height="94" Width="102"/>
         </WrapPanel>
+
         <WrapPanel Height="18" Margin="0" HorizontalAlignment="Center">
             <Label x:Name="folder1T" Content="----------" Padding="30, 0, 30, 0" FontFamily="Arial Narrow" FontSize="16" HorizontalAlignment="Center" RenderTransformOrigin="1.335,0.577" Foreground="White" FontWeight="Bold" />
             <Label x:Name="folder2T" Content="----------" Padding="30, 0, 30, 0" Margin="0" FontFamily="Arial Narrow" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Foreground="White" ></Label>
@@ -34,8 +38,13 @@
         <StackPanel>
             <Label Content="Websites" Foreground="#FFFFD200" FontSize="18" FontFamily="Arial Rounded MT Bold" Background="#FF929292" FontWeight="Bold"/>
             <Label Content="Notes" Foreground="#FFFFD200" FontSize="18" FontFamily="Arial Rounded MT Bold" Background="#FF929292" FontWeight="Bold"/>
-            <Button Margin="5" Content="Settings" Background="#FFFFCC19" BorderBrush="#FF8A8A8A" BorderThickness="3,1,3,3" Width="132" Click="openSettings"></Button>
+            <!-- <Button Margin="5" Content="Settings" Background="#FFFFCC19" BorderBrush="#FF8A8A8A" BorderThickness="3,1,3,3" Width="132" Click="openSettings"></Button> -->
+            
         </StackPanel>
-        
+        <WrapPanel HorizontalAlignment="Center">
+            <Button Margin="5" Click="noteCreate" Height="37" Width="394" Content="Create Note" FontSize="16" FontWeight="Bold" Background="#FFFFBB00" BorderBrush="#FF404040" BorderThickness="3,3,3,3"></Button>
+            <Button Margin="5" Click="notesShow" Height="37" Width="394" Content="Show Notes" FontSize="16" FontWeight="Bold" Background="#FFFFBB00" BorderBrush="#FF404040" BorderThickness="3,3,3,3"></Button>
+        </WrapPanel>
+
     </StackPanel>
 </Window>

@@ -24,17 +24,17 @@ namespace Overview
 
         private string[] config;
 
-        private string app1Path = "notepad.exe";
-        private string app2Path = "notepad.exe";
-        private string app3Path = "notepad.exe";
-        private string app4Path = "notepad.exe";
+        private string app1Path = "C:\\Overview\\Placeholder.bat";
+        private string app2Path = "C:\\Overview\\Placeholder.bat";
+        private string app3Path = "C:\\Overview\\Placeholder.bat";
+        private string app4Path = "C:\\Overview\\Placeholder.bat";
 
-        private string folder1Path = "explorer.exe";
-        private string folder2Path = "explorer.exe";
-        private string folder3Path = "explorer.exe";
-        private string folder4Path = "explorer.exe";
-        private string folder5Path = "explorer.exe";
-        private string folder6Path = "explorer.exe";
+        private string folder1Path = "C:\\Overview\\Placeholder.bat";
+        private string folder2Path = "C:\\Overview\\Placeholder.bat";
+        private string folder3Path = "C:\\Overview\\Placeholder.bat";
+        private string folder4Path = "C:\\Overview\\Placeholder.bat";
+        private string folder5Path = "C:\\Overview\\Placeholder.bat";
+        private string folder6Path = "C:\\Overview\\Placeholder.bat";
 
         private string folder1Text = "";
         private string folder2Text = "";
@@ -49,15 +49,48 @@ namespace Overview
         {
             InitializeComponent();
             loadingAnimation();
+
+            try
+            {
+                var imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri(File.ReadAllText("C:\\Overview\\background.yml")));
+                imageBrush.Stretch = Stretch.UniformToFill;
+                mainPanel.Background = imageBrush;
+            }
+            catch
+            {
+
+            }
             try
             {
                 config = File.ReadAllLines("C:\\Overview\\Config.yml");
             }
             catch
             {
-                File.WriteAllLines("C:\\Overview\\Config.yml", Enumerable.Range(1, 35).Select(n => n.ToString()));
-                config = File.ReadAllLines("C:\\Overview\\Config.yml");
+                try
+                {
+                    File.WriteAllLines("C:\\Overview\\Config.yml", Enumerable.Range(1, 35).Select(n => n.ToString()));
+                    config = File.ReadAllLines("C:\\Overview\\Config.yml");
+                }
+                catch
+                {
+                    try
+                    {
+                        string folderPath = "C:\\Overview";
+                        Directory.CreateDirectory(folderPath);
+                        File.WriteAllLines("C:\\Overview\\Config.yml", Enumerable.Range(1, 35).Select(n => n.ToString()));
+                        config = File.ReadAllLines("C:\\Overview\\Config.yml");
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message, "Create Program folder Error");
+
+                    }
+                }
+                
             }
+            File.WriteAllText("C:\\Overview\\Placeholder.bat", "exit");
+            File.WriteAllText("C:\\Overview\\LICENSE.txt", "LICENSE: GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007, License Link: https://www.gnu.org/licenses/gpl-3.0.html");
 
             try
             {
@@ -180,7 +213,7 @@ namespace Overview
 
         private async void loadingAnimation()
         {
-            for (int i = -30; i <= 10; i++)
+            for (int i = -10; i <= 10; i++)
             {
                 mainPanel.Margin = new Thickness(i, i, i, i);
                 await Task.Delay(1);
@@ -233,14 +266,49 @@ namespace Overview
         // Open Settings
         private void noteCreate(object sender, RoutedEventArgs e)
         {
-            //File.WriteAllText("C:\\Overview\\Notes.txt", noteText.Text);
-            //MessageBox.Show("Note was saved", "Notes");
+            var noteWindow = new CreateNoteWindow();
+            noteWindow.Show();
+        }
+        private void notesShow(object sender, RoutedEventArgs e)
+        {
+            Process.Start("explorer.exe", "Dokumente");
         }
 
         private void openSettings(object sender, RoutedEventArgs e)
         {
             var settingsWindow = new SettingsWindow();
             settingsWindow.Show();
+        }
+
+        private void mainPanel_Drop(object sender, DragEventArgs e)
+        {
+
+            var files = e.Data.GetData(DataFormats.FileDrop) as string[];
+            if (files?.Length > 0)
+                Console.WriteLine("");
+            try
+            {
+                var imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri(System.IO.Path.GetFullPath(files[0])));
+                imageBrush.Stretch = Stretch.UniformToFill;
+                mainPanel.Background = imageBrush;
+                try
+                {
+                    File.Delete("C:\\Overview\\background.yml");
+                }
+                catch
+                {
+
+                }
+                File.WriteAllText("C:\\Overview\\background.yml", System.IO.Path.GetFullPath(files[0]));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Background Error");
+            }
+            
+
+
         }
     }
 }
