@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="folderIcon.png" />
+    <None Remove="folderIcon2.png" />
+    <None Remove="placeholdericon.png" />
+    <None Remove="placeholdericon3.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="9.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="folderIcon.png" />
+    <Resource Include="folderIcon2.png" />
+    <Resource Include="placeholdericon.png" />
+    <Resource Include="placeholdericon3.png" />
+  </ItemGroup>
+
+</Project>

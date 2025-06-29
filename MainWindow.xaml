@@ -1,0 +1,41 @@
+﻿<Window x:Class="Overview.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Overview"
+        mc:Ignorable="d"
+        Title="Overview" Background="#FF6D6D6D" Height="466" Width="869">
+    <StackPanel Margin="10" Background="#FF6D6D6D" x:Name="mainPanel">
+        <Label Content="Programs" Foreground="#FFFFD200" FontSize="18" FontFamily="Arial Rounded MT Bold" Background="#FF929292" FontWeight="Bold"/>
+        <WrapPanel HorizontalAlignment="Center">
+            <Image Margin="15" HorizontalAlignment="Left" x:Name="app1" MouseDown="app1Click" Source="/placeholdericon3.png" Height="142" Width="158"></Image>
+            <Image Margin="15" HorizontalAlignment="Left" x:Name="app2" MouseDown="app2Click" Source="/placeholdericon3.png" Height="142" Width="158"></Image>
+            <Image Margin="15" HorizontalAlignment="Left" x:Name="app3" MouseDown="app3Click" Source="/placeholdericon3.png" Height="142" Width="158"></Image>
+            <Image Margin="15" HorizontalAlignment="Left" x:Name="app4" MouseDown="app4Click" Source="/placeholdericon3.png" Height="142" Width="158"></Image>
+        </WrapPanel>
+        <Label Content="Folders / Workspaces" Foreground="#FFFFD200" FontSize="18" FontFamily="Arial Rounded MT Bold" Background="#FF929292" FontWeight="Bold"/>
+        <WrapPanel HorizontalAlignment="Center" Height="82">
+            <Image Margin="0" HorizontalAlignment="Center" x:Name="folder1" MouseDown="folder1Click" Source="/folderIcon2.png" Height="94" Width="102"/>
+            <Image Margin="0" HorizontalAlignment="Center" x:Name="folder2" MouseDown="folder2Click" Source="/folderIcon2.png" Height="94" Width="102"/>
+            <Image Margin="0" HorizontalAlignment="Center" x:Name="folder3" MouseDown="folder3Click" Source="/folderIcon2.png" Height="94" Width="102"/>
+            <Image Margin="0" HorizontalAlignment="Center" x:Name="folder4" MouseDown="folder4Click" Source="/folderIcon2.png" Height="94" Width="102"/>
+            <Image Margin="0" HorizontalAlignment="Center" x:Name="folder5" MouseDown="folder5Click" Source="/folderIcon2.png" Height="94" Width="102"/>
+            <Image Margin="0" HorizontalAlignment="Center" x:Name="folder6" MouseDown="folder6Click" Source="/folderIcon2.png" Height="94" Width="102"/>
+        </WrapPanel>
+        <WrapPanel Height="18" Margin="0" HorizontalAlignment="Center">
+            <Label x:Name="folder1T" Content="----------" Padding="30, 0, 30, 0" FontFamily="Arial Narrow" FontSize="16" HorizontalAlignment="Center" RenderTransformOrigin="1.335,0.577" Foreground="White" FontWeight="Bold" />
+            <Label x:Name="folder2T" Content="----------" Padding="30, 0, 30, 0" Margin="0" FontFamily="Arial Narrow" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Foreground="White" ></Label>
+            <Label x:Name="folder3T" Content="----------" Padding="30, 0, 30, 0" Margin="0" FontFamily="Arial Narrow" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Foreground="White" ></Label>
+            <Label x:Name="folder4T" Content="----------" Padding="30, 0, 30, 0" Margin="0" FontFamily="Arial Narrow" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Foreground="White" ></Label>
+            <Label x:Name="folder5T" Content="----------" Padding="30, 0, 30, 0" Margin="0" FontFamily="Arial Narrow" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Foreground="White" ></Label>
+            <Label x:Name="folder6T" Content="----------" Padding="30, 0, 30, 0" Margin="0" FontFamily="Arial Narrow" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Foreground="White" ></Label>
+        </WrapPanel>
+        <StackPanel>
+            <Label Content="Websites" Foreground="#FFFFD200" FontSize="18" FontFamily="Arial Rounded MT Bold" Background="#FF929292" FontWeight="Bold"/>
+            <Label Content="Notes" Foreground="#FFFFD200" FontSize="18" FontFamily="Arial Rounded MT Bold" Background="#FF929292" FontWeight="Bold"/>
+            <Button Margin="5" Content="Settings" Background="#FFFFCC19" BorderBrush="#FF8A8A8A" BorderThickness="3,1,3,3" Width="132" Click="openSettings"></Button>
+        </StackPanel>
+        
+    </StackPanel>
+</Window>
