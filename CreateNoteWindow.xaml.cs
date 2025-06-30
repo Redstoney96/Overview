@@ -40,7 +40,7 @@ namespace Overview
         }
         private async void loadingAnimation()
         {
-            for (int i = -10; i <= 3; i++)
+            for (int i = -10; i <= 5; i++)
             {
                 mainPanel.Margin = new Thickness(i, i, i, i);
                 await Task.Delay(1);

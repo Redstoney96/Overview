@@ -9,23 +9,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="bdaf7b329b795be7969ea1bac41f64d6.png" />
+    <None Remove="Daco_6167.png" />
     <None Remove="folderIcon.png" />
     <None Remove="folderIcon2.png" />
     <None Remove="placeholdericon.png" />
     <None Remove="placeholdericon3.png" />
+    <None Remove="vecteezy_youtube-logo-png-youtube-icon-transparent_18930575.png" />
     <None Remove="walpaper1.jpg" />
+    <None Remove="website-icon-29489.png" />
+    <None Remove="Youtube_Music_icon.svg.png" />
+    <None Remove="[CITYPNG.COM]HD Youtube YT Triangle Symbol Logo Icon Sign PNG - 2000x2000.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3296.44" />
     <PackageReference Include="System.Drawing.Common" Version="9.0.6" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="bdaf7b329b795be7969ea1bac41f64d6.png" />
+    <Resource Include="Daco_6167.png" />
     <Resource Include="folderIcon.png" />
     <Resource Include="folderIcon2.png" />
     <Resource Include="placeholdericon.png" />
     <Resource Include="placeholdericon3.png" />
+    <Resource Include="vecteezy_youtube-logo-png-youtube-icon-transparent_18930575.png" />
     <Resource Include="walpaper1.jpg" />
+    <Resource Include="website-icon-29489.png" />
+    <Resource Include="Youtube_Music_icon.svg.png" />
+    <Resource Include="[CITYPNG.COM]HD Youtube YT Triangle Symbol Logo Icon Sign PNG - 2000x2000.png" />
   </ItemGroup>
 
 </Project>

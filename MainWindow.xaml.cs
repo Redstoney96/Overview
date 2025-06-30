@@ -1,7 +1,9 @@
-﻿using System.Diagnostics;
+﻿using Microsoft.Win32;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,7 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Threading.Tasks;
 
 namespace Overview
 {
@@ -263,7 +264,7 @@ namespace Overview
             Process.Start("explorer.exe", folder6Path);
         }
         // End of Folder Logic
-        // Open Settings
+        // Note Logic
         private void noteCreate(object sender, RoutedEventArgs e)
         {
             var noteWindow = new CreateNoteWindow();
@@ -271,7 +272,12 @@ namespace Overview
         }
         private void notesShow(object sender, RoutedEventArgs e)
         {
-            Process.Start("explorer.exe", "Dokumente");
+            var dlg = new OpenFileDialog
+            {
+                InitialDirectory = "C:\\Users\\" + Environment.UserName + "\\Documents"
+            };
+            dlg.ShowDialog();
+            Process.Start("explorer.exe", dlg.FileName);
         }
 
         private void openSettings(object sender, RoutedEventArgs e)
@@ -309,6 +315,63 @@ namespace Overview
             
 
 
+        }
+
+        private void shortcut1Click(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                File.Delete("C:\\Overview\\Url.yml");
+            }
+            catch
+            {
+
+            }
+            File.WriteAllText("C:\\Overview\\Url.yml", "https://music.youtube.com");
+            var musicWindow = new WebWindow();
+            musicWindow.Show();
+        }
+        private void shortcut2Click(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                File.Delete("C:\\Overview\\Url.yml");
+            }
+            catch
+            {
+
+            }
+            File.WriteAllText("C:\\Overview\\Url.yml", "https://www.youtube.com");
+            var musicWindow = new WebWindow();
+            musicWindow.Show();
+        }
+        private void shortcut3Click(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                File.Delete("C:\\Overview\\Url.yml");
+            }
+            catch
+            {
+
+            }
+            File.WriteAllText("C:\\Overview\\Url.yml", "https://www.google.com");
+            var musicWindow = new WebWindow();
+            musicWindow.Show();
+        }
+        private void shortcut4Click(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                File.Delete("C:\\Overview\\Url.yml");
+            }
+            catch
+            {
+
+            }
+            File.WriteAllText("C:\\Overview\\Url.yml", "https://example.com");
+            var musicWindow = new WebWindow();
+            musicWindow.Show();
         }
     }
 }
